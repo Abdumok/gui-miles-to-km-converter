@@ -8,6 +8,12 @@ window.title("Miles to KM Converter")
 window.minsize(width=100, height=100)
 window.config(padx=30, pady=30, bg=BACKGROUND_COLOR)
 
+def converter():
+    miles= user_input.get()
+    # convert the miles to km and round the result to 2 digit
+    km= round((float(miles) * 1.608), 2)
+    result_label.config(text=km)
+
 user_input= Entry()
 user_input.grid(column= 1, row= 0)
 
@@ -23,7 +29,7 @@ km_label.grid(column= 2,row= 1)
 result_label= Label(text="0", padx=10, bg= BACKGROUND_COLOR)
 result_label.grid(column= 1, row= 1)
 
-button= Button(text="Calculate")
+button= Button(text="Calculate", bg= BACKGROUND_COLOR, command=converter)
 button.grid(column=1, row= 2)
 
 
